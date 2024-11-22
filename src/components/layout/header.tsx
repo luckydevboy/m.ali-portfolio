@@ -3,7 +3,7 @@
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import { useWorks } from "@/services/portfolios/hook";
+import { useWorks } from "@/services/works/hook";
 
 type Props = {
   className?: string;

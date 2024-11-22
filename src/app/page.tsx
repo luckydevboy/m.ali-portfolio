@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useWorks } from "@/services/portfolios/hook";
+import { useWorks } from "@/services/works/hook";
 
 export default function Home() {
   const { data, error, size, setSize, hasMore, isValidating } = useWorks(true);
