@@ -3,10 +3,10 @@ export interface Portfolio {
   documentID: string;
   description: Description[];
   title: string;
-  date: Date;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
+  date: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
   locale: string;
   images: Image[];
   localizations: any[];
@@ -41,9 +41,9 @@ interface Image {
   previewURL: null;
   provider: string;
   providerMetadata: null;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 enum EXT {
