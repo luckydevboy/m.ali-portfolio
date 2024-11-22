@@ -1,6 +1,6 @@
-export interface Portfolio {
+export interface Work {
   id: number;
-  documentID: string;
+  documentId: string;
   description: Description[];
   title: string;
   date: string;

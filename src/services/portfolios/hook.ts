@@ -1,12 +1,14 @@
 import useSWRInfinite from "swr/infinite";
-import { fetchPortfolios } from ".";
+import { fetchWorks } from ".";
 
-export const usePortfolios = () => {
+export const useWorks = (populated: boolean = false) => {
   const { data, error, isLoading, size, setSize, isValidating } =
     useSWRInfinite(
       (index) =>
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/portfolios?populate=*&pagination[page]=${index + 1}&pagination[pageSize]=25`,
-      fetchPortfolios,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/works?
+        pagination[page]=${index + 1}&pagination[pageSize]=25
+        ${populated ? "&populate=*" : ""}`,
+      fetchWorks,
     );
 
   const page = data?.[data?.length - 1].meta.pagination.page;

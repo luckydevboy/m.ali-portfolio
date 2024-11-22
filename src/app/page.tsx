@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePortfolios } from "@/services/portfolios/hook";
+import { useWorks } from "@/services/portfolios/hook";
 
 export default function Home() {
-  const { data, error, size, setSize, hasMore, isValidating } = usePortfolios();
+  const { data, error, size, setSize, hasMore, isValidating } = useWorks(true);
 
-  const portfolios = data?.flatMap((item) => item.data);
+  const works = data?.flatMap((item) => item.data);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -15,13 +15,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {portfolios?.map((portfolio) => {
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        {works?.map((portfolio) => {
           return (
             <Link
               key={portfolio.id}
-              className="relative w-full h-[calc(100vw)] md:h-[calc(50vw)] group"
-              href={`/portfolio/${portfolio.id}`}
+              className="relative w-full h-[calc(100vw)] lg:h-[calc(50vw)] lg:max-h-[500px] group"
+              href={`/portfolio/${portfolio.documentId}`}
             >
               <div
                 className="hidden absolute bg-white/90 inset-5 z-10 group-hover:flex flex-col

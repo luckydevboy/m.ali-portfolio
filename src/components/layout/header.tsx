@@ -3,12 +3,20 @@
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useWorks } from "@/services/portfolios/hook";
 
-const Header = () => {
+type Props = {
+  className?: string;
+};
+
+const Header = ({ className }: Props) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const { data } = useWorks();
+
+  const works = data?.flatMap((item) => item.data);
 
   return (
-    <header className="relative py-7 px-5">
+    <header className={`relative py-7 px-5 ${className}`}>
       <h1 className="text-lg sm:text-2xl font-bold text-center">
         Mohammad Ali Ghasemi
       </h1>
@@ -25,15 +33,11 @@ const Header = () => {
           />
           <h2 className="text-center mt-12 text-2xl mb-8">Work</h2>
           <ul className="flex flex-col gap-y-6 text-center">
-            <li>
-              <Link href="/project-1">Project 1</Link>
-            </li>
-            <li>
-              <Link href="/project-2">Project 2</Link>
-            </li>
-            <li>
-              <Link href="/project-3">Project 3</Link>
-            </li>
+            {works?.map((work) => (
+              <li key={work.documentId}>
+                <Link href={work.documentId}>{work.title}</Link>
+              </li>
+            ))}
             <hr />
             <li>
               <Link href="#">Home</Link>
