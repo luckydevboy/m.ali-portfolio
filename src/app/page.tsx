@@ -16,25 +16,25 @@ export default function Home() {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {works?.map((portfolio) => {
+        {works?.map((image) => {
           return (
             <Link
-              key={portfolio.id}
+              key={image.id}
               className="relative w-full h-[calc(100vw)] lg:h-[calc(50vw)] lg:max-h-[500px] group"
-              href={`/portfolio/${portfolio.documentId}`}
+              href={`/portfolio/${image.documentId}`}
             >
               <div
                 className="hidden absolute bg-white/90 inset-5 z-10 group-hover:flex flex-col
                items-center justify-center"
               >
-                <p>{portfolio.date.split("-")[0]}</p>
-                <h2 className="text-xl font-medium">{portfolio.title}</h2>
+                <p>{image.date.split("-")[0]}</p>
+                <h2 className="text-xl font-medium">{image.title}</h2>
               </div>
               {/* TODO: handle pinned images*/}
               {/* TODO: handle LQIP method for images as loader */}
               <Image
-                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${portfolio.images[0].url}`}
-                alt={portfolio.title}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${image.images[0].url}`}
+                alt={image.title}
                 fill
                 objectFit="cover"
               />

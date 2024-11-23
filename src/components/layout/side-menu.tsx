@@ -18,7 +18,7 @@ const SideMenu = ({ className }: Props) => {
       <h2 className="mt-8 mb-4 text-lg font-medium">Works</h2>
       <div className="flex flex-col gap-y-4">
         {works?.map((work) => (
-          <Link key={work.documentId} href={work.documentId}>
+          <Link key={work.documentId} href={`/work/${work.documentId}`}>
             {work.title}
           </Link>
         ))}

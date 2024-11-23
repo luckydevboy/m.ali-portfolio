@@ -1,5 +1,6 @@
 import useSWRInfinite from "swr/infinite";
-import { fetchWorks } from ".";
+import { fetchWork, fetchWorks } from ".";
+import useSWR from "swr";
 
 export const useWorks = (populated: boolean = false) => {
   const { data, error, isLoading, size, setSize, isValidating } =
@@ -24,5 +25,16 @@ export const useWorks = (populated: boolean = false) => {
     setSize,
     hasMore,
     isValidating,
+  };
+};
+
+export const useWork = (id: string) => {
+  const { data } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/works/${id}?populate=*`,
+    fetchWork,
+  );
+
+  return {
+    data,
   };
 };

@@ -35,7 +35,12 @@ const Header = ({ className }: Props) => {
           <ul className="flex flex-col gap-y-6 text-center">
             {works?.map((work) => (
               <li key={work.documentId}>
-                <Link href={work.documentId}>{work.title}</Link>
+                <Link
+                  href={`/work/${work.documentId}`}
+                  onClick={() => setMenuIsOpen(false)}
+                >
+                  {work.title}
+                </Link>
               </li>
             ))}
             <hr />
