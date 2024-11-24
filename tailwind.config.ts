@@ -8,9 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "nunito-sans": ["var(--font-nunito-sans)"],
+        poppins: ["var(--font-poppins)"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#222",
+        secondary: "#999",
+        tertiary: "#999999",
       },
     },
   },

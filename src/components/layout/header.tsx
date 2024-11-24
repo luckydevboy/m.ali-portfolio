@@ -17,7 +17,7 @@ const Header = ({ className }: Props) => {
 
   return (
     <header className={`relative py-7 px-5 ${className}`}>
-      <h1 className="text-lg sm:text-2xl font-bold text-center">
+      <h1 className="text-lg sm:text-2xl font-bold text-center font-poppins">
         Mohammad Ali Ghasemi
       </h1>
       <MenuIcon
@@ -31,8 +31,8 @@ const Header = ({ className }: Props) => {
             className="absolute right-5 top-7"
             onClick={() => setMenuIsOpen(false)}
           />
-          <h2 className="text-center mt-12 text-2xl mb-8">Work</h2>
-          <ul className="flex flex-col gap-y-6 text-center">
+          <h2 className="text-center mt-12 text-2xl mb-8 font-poppins">Work</h2>
+          <ul className="flex flex-col gap-y-6 text-center font-nunito-sans">
             {works?.map((work) => (
               <li key={work.documentId}>
                 <Link
@@ -43,7 +43,6 @@ const Header = ({ className }: Props) => {
                 </Link>
               </li>
             ))}
-            <hr />
             <li>
               <Link href="#">Home</Link>
             </li>
@@ -53,7 +52,6 @@ const Header = ({ className }: Props) => {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
-            <hr />
           </ul>
         </nav>
       )}

@@ -1,7 +1,9 @@
+import { RootNode } from "@strapi/blocks-react-renderer/dist/BlocksRenderer";
+
 export interface Work {
   id: number;
   documentId: string;
-  description: Description[];
+  description: RootNode[];
   title: string;
   date: string;
   createdAt: string;
@@ -10,18 +12,6 @@ export interface Work {
   locale: string;
   images: Image[];
   localizations: any[];
-}
-
-interface Description {
-  type: string;
-  children: Child[];
-}
-
-interface Child {
-  type: string;
-  text: string;
-  bold?: boolean;
-  code?: boolean;
 }
 
 interface Image {

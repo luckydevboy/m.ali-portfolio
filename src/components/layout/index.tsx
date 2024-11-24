@@ -8,13 +8,13 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
+    <div className="container mx-auto">
       <Header className="lg:hidden" />
       <div className="grid grid-cols-1 lg:grid-cols-4">
         <SideMenu className="hidden lg:block col-span-1" />
         <section className="col-span-3">{children}</section>
       </div>
-    </>
+    </div>
   );
 };
 

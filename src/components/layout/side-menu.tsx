@@ -14,15 +14,36 @@ const SideMenu = ({ className }: Props) => {
 
   return (
     <aside className={`text-center px-4 py-12 ${className}`}>
-      <h1 className="font-bold text-2xl">Mohammad Ali Ghasemi</h1>
-      <h2 className="mt-8 mb-4 text-lg font-medium">Works</h2>
-      <div className="flex flex-col gap-y-4">
+      <h1 className="font-bold text-3xl font-poppins text-primary">
+        {"Mohammad Ali Ghasemi".toUpperCase()}
+      </h1>
+      <h2 className="mt-12 mb-5 text-sm font-bold text-secondary font-poppins">
+        {"Work".toUpperCase()}
+      </h2>
+      <div className="space-y-4 mb-12">
         {works?.map((work) => (
-          <Link key={work.documentId} href={`/work/${work.documentId}`}>
-            {work.title}
-          </Link>
+          <div key={work.documentId}>
+            <Link
+              className="font-nunito-sans text-base text-tertiary hover:text-primary transition-colors"
+              href={`/work/${work.documentId}`}
+            >
+              {work.title}
+            </Link>
+          </div>
         ))}
       </div>
+      <Link
+        href="/about"
+        className="block font-nunito-sans text-tertiary text-base mb-4 hover:text-primary transition-colors"
+      >
+        About
+      </Link>
+      <Link
+        href="/contact"
+        className="block font-nunito-sans text-tertiary text-base hover:text-primary transition-colors"
+      >
+        Contact
+      </Link>
     </aside>
   );
 };
