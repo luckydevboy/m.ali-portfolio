@@ -18,7 +18,7 @@ const Header = ({ className }: Props) => {
   return (
     <header className={`relative py-7 px-5 ${className}`}>
       <h1 className="text-lg sm:text-2xl font-semibold text-primary text-center font-poppins">
-        Mohammad Ali Ghasemi
+        <Link href="/">{"Mohammad Ali Ghasemi".toUpperCase()}</Link>
       </h1>
       <MenuIcon
         className="h-6 w-6 absolute right-5 top-1/2 -translate-y-1/2 text-primary"

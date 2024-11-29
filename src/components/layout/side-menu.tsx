@@ -15,7 +15,7 @@ const SideMenu = ({ className }: Props) => {
   return (
     <aside className={`text-center px-4 py-12 ${className}`}>
       <h1 className="font-bold text-3xl font-poppins text-primary">
-        {"Mohammad Ali Ghasemi".toUpperCase()}
+        <Link href="/">{"Mohammad Ali Ghasemi".toUpperCase()}</Link>
       </h1>
       <h2 className="mt-12 mb-5 text-sm font-bold text-secondary font-poppins">
         {"Work".toUpperCase()}
