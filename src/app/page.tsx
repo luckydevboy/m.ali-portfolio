@@ -5,12 +5,25 @@ import Link from "next/link";
 import { useWorks } from "@/services/works/hook";
 
 export default function Home() {
-  const { data, error, size, setSize, hasMore, isValidating } = useWorks(true);
+  const { data, error, size, setSize, hasMore, isValidating, isLoading } =
+    useWorks(true);
 
   const works = data?.flatMap((item) => item.data);
 
+  if (isLoading) {
+    return <p className="font-nunito-sans">Loading...</p>;
+  }
+
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className="font-nunito-sans text-red-600">
+        Error: {error.message}
+      </div>
+    );
+  }
+
+  if (!works?.length && !isLoading) {
+    return <p className="font-nunito-sans">No work to show!</p>;
   }
 
   return (
